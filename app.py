@@ -8,7 +8,7 @@ st.set_page_config(page_title="DigitDetective",page_icon='🔍',layout='wide')
 st.title("DigitDetective")
 st.badge("numpy only - no frameworks")
 st.space('medium')
-@st.cache_data
+@st.cache_resource
 def load_model():
     """Loads the Neural network."""
     n_net = Neural()
@@ -45,7 +45,7 @@ if 'canvas_key' not in st.session_state:
 left_col, right_col = st.columns(2)
 left_col = left_col.container(border=True, height="stretch", vertical_alignment="top")
 with left_col:
-    """## CANVAS"""
+    st.header("CANVAS")
 
     canvas_result = st_canvas(stroke_width=20,stroke_color="white",background_color="#000000",width=400,height=400,display_toolbar=False,key=f'canvas_{st.session_state.canvas_key}')
     button_cols = st.columns(2)
